@@ -26,6 +26,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # gem 'rack-cors'
 
 gem 'graphql', '1.12.17'
+gem 'apollo-federation'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
