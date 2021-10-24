@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+
+5.times do |i|
+  Entry.create(kind: "DEBIT", description: "Lorem ipsum saves lives", due_date: "2021/10/24", amount: 45.98 * (i + 1)) 
+end
