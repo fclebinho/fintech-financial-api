@@ -1,5 +1,5 @@
 module Mutations
-  class UpdateEntry < Mutations::BaseMutation
+  class UpdateEntryMutation < Mutations::BaseMutation
     argument :params, Types::Input::EntryUpdateInputType, required: true
 
     field :entry, Types::EntryType, null: false

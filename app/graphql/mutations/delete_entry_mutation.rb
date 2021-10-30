@@ -1,5 +1,5 @@
 module Mutations
-  class DeleteEntry < Mutations::BaseMutation
+  class DeleteEntryMutation < Mutations::BaseMutation
     # Just returning id is okay
     field :id, ID, null: true
 

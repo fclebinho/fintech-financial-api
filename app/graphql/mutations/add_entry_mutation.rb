@@ -1,10 +1,12 @@
 module Mutations
-  class AddEntry < Mutations::BaseMutation
+  class AddEntryMutation < Mutations::BaseMutation
     argument :params, Types::Input::EntryAddInputType, required: true
 
     field :entry, Types::EntryType, null: false
 
     def resolve(params:)
+      check_authentication!
+      
       entry_params = Hash params
 
       begin
