@@ -4,9 +4,7 @@ module Mutations
 
     field :entry, Types::EntryType, null: false
 
-    def resolve(params:)
-      check_authentication!
-      
+    def resolve(params:)      
       entry_params = Hash params
 
       begin
