@@ -1,6 +1,6 @@
 module Types
   module Input
-    class EntryInputType < Types::BaseInputObject
+    class EntryAddInputType < Types::BaseInputObject
       argument :kind, Types::Enums::KindEnum, required: true
       argument :description, String, required: true
       argument :due_date, GraphQL::Types::ISO8601Date, required: true
