@@ -1,6 +1,6 @@
 module Mutations
   class AddEntryMutation < Mutations::BaseMutation
-    argument :params, Types::Input::EntryAddInputType, required: true
+    argument :params, Types::Input::Entry::EntryAddInputType, required: true
 
     field :entry, Types::EntryType, null: false
 

@@ -9,5 +9,7 @@ module Types
 
     field :entries, resolver: Types::Queries::FetchEntries
     field :entry, resolver: Types::Queries::FetchEntry
+
+    field :accounts, resolver: Types::Queries::FetchAccounts
   end
 end

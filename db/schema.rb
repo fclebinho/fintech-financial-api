@@ -16,14 +16,27 @@ ActiveRecord::Schema.define(version: 2021_10_24_134604) do
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
+  create_table "accounts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.integer "kind", default: 0
+    t.integer "number"
+    t.string "title"
+    t.string "description"
+    t.integer "status", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "entries", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.integer "kind", default: 0
     t.string "description"
     t.date "due_date"
     t.decimal "amount", precision: 15, scale: 2, default: "0.0"
     t.integer "status", default: 0
+    t.uuid "account_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_entries_on_account_id"
   end
 
+  add_foreign_key "entries", "accounts"
 end

@@ -6,6 +6,7 @@ class CreateEntries < ActiveRecord::Migration[6.1]
       t.date :due_date
       t.decimal :amount, precision: 15, scale: 2, :default => 0
       t.integer :status, :default => 0
+      t.references :account, null: false, foreign_key: true, type: :uuid
 
       t.timestamps
     end

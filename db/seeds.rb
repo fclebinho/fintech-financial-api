@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+account = Account.create(title: 'Hello', description: 'World', number: 1)
 
 5.times do |i|
-  Entry.create(kind: "DEBIT", description: "Lorem ipsum saves lives", due_date: "2021/10/24", amount: 45.98 * (i + 1)) 
+  Entry.create(account: account, kind: "DEBIT", description: "Lorem ipsum saves lives", due_date: "2021/10/24", amount: 45.98 * (i + 1)) 
 end
