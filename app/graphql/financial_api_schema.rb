@@ -1,5 +1,16 @@
 class FinancialApiSchema < GraphQL::Schema
   include ApolloFederation::Schema
+  
+  # It's important that this line goes before setting the query and mutation type on your
+  # schema in graphql versions < 1.10.0
+  use GraphqlDevise::SchemaPlugin.new(
+    query:            Types::QueryType,
+    mutation:         Types::MutationType,
+    resource_loaders: [
+      GraphqlDevise::ResourceLoader.new(User, only: [:login, :register, :confirm_registration_with_token])
+    ]
+  )
+  
   mutation(Types::MutationType)
   query(Types::QueryType)
 
